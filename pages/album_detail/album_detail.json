@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "comment": "../../components/comment/comment",
+    "song_item": "../../components/song_item/song_item"
+  }
+}

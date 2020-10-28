@@ -1,0 +1,5 @@
+@import "./fonts/font.wxss";
+/* 让子页面的高度, 设置100%能够换算到具体的值 */
+page{
+  height: 100%;
+}

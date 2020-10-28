@@ -1,0 +1,35 @@
+<!-- 让当前这首歌曲的背景图铺满整个详情页面 -->
+<!-- 背景图不会撑开标签的大小, 所以提前给标签设置宽高 -->
+<view class="container" bindtap="playMusicFn">
+  <!-- 背景 -->
+  <view class="back" style="background-image: url({{theObj.picUrl}})"></view>
+  <view class="mock"></view>
+  <!-- 音乐盘 -->
+  <view class="content_wrap">
+    <image class="play_icno" style="transform: {{playIconDeg}};" 
+    src="http://s3.music.126.net/mobile-new/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862="></image>
+    <view class="play_circle">
+      <image src="{{theObj.picUrl}}" style="transform: {{rotateStr}}"></image>
+      <view style="display: {{isPlay ? 'none' : 'inline-block'}}" class="play_btn iconfont icon-icon-test"></view>
+    </view>
+  </view>
+  <!-- bindtimeupdate: 事件:检测音乐播放的进度(只要音乐播放改变就触发) -->
+  <audio id="myAudio" src="{{audioSrc}}" bindtimeupdate="playChangeFn" ></audio>
+  <!-- 放置歌名和作者 -->
+  <view class="song_name">
+    <text>{{theObj.song.name}}</text>
+    <text wx:for="{{theObj.song.artists}}" wx:for-index="ind" wx:for-item="songItem" 
+    wx:key="ind"> - {{songItem.name}} </text>
+  </view>
+
+  <!-- 放置歌词 -->
+  <!-- 为什么scroll-top设置的值对了, 但是不滚动
+    因为你的孩子是通过网络请求拿回来的数据, 所以先后顺序有问题
+    当scroll-top设置的时候, 数据还没有铺设, 所以还不能滚动
+    当lyrStrArr数据铺设完毕以后, 再去调整我们的scroll-top
+   -->
+  <scroll-view scroll-y="true" scroll-into-view="{{theTop}}"  class="lrc_wrap">
+      <view id="{{'a' + index}}"  class="{{index === lyrStrIndex ? 'active' : ''}} lyr" wx:for="{{lyrStrArr}}" wx:key="index" >{{item}}</view>
+  </scroll-view>
+ 
+</view> 

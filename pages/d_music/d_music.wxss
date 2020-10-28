@@ -1,0 +1,112 @@
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.back {
+  width: 100%;
+  height: 100%;
+  /* cover不变形的压缩图片适配当前容器 */
+  background-size: cover;
+  /* 高斯模糊这个div的背景 */
+  filter: blur(10px);
+  position: fixed;
+  z-index: -2;
+}
+
+.mock {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.7;
+  position: fixed;
+  z-index: -1;
+}
+
+/* 内容区域 */
+.content_wrap{
+  position: relative;
+}
+.play_icno{
+  width: 192rpx;
+  height: 274rpx;
+  position: absolute;
+  left: 50%;
+  z-index: 2;
+  /* 旋转基准点(在哪里插住大头针, 那个点不动) (默认是center center) */
+  transform-origin: top left;
+  /* 过渡动画, 1秒钟改变状态做一个动画 */
+  transition: all 1s;
+}
+.play_circle{
+  width: 600rpx;
+  height: 600rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  background-image: url("http://s3.music.126.net/mobile-new/img/disc-ip6.png?69796123ad7cfe95781ea38aac8f2d48=");
+  background-size: cover;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+  top: 130rpx;
+}
+.play_circle image{
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  position: absolute;
+  top: 120rpx;
+  left: 120rpx;
+}
+.play_btn{
+  width: 96rpx;
+  height: 96rpx;
+  font-size: 96rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -48rpx;
+  /* 定位元素的真正位置, 距离左边的距离除了left还要加上margin的值才是此
+  标签真正的位置 */
+  z-index: 10;
+  color: gray;
+}
+
+/* 歌曲名字 */
+.song_name{
+  text-align:center;
+  padding-top: 100rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  color: gray;
+  font-size: 32rpx;
+}
+.song_name text:nth-of-type(1) {
+  color: white;
+  font-size: 36rpx;
+}
+
+/* 歌词的相关样式 */
+.lrc_wrap{
+  height: 88rpx;
+  /* overflow: hidden; */
+}
+.lrc_wrap view{
+  background: linear-gradient(to top, gray, white);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.lrc_wrap .active{
+  color: white;
+}

@@ -1,0 +1,46 @@
+/* 因为组件内的js/wxss都是独立的, app中写好的影响不到这里 */
+@import "../../fonts/font.wxss";
+.ov{
+  overflow: hidden;
+}
+/* 最新音乐相关的样式 */
+.news_song_item{
+  margin-left: 20rpx;
+  padding-right: 20rpx;
+  border-bottom: 1px solid #ccc;
+}
+.song_info_wrap{
+  float: left;
+  width: 646rpx;
+}
+.play_icon{
+  font-size: 44rpx;
+  float: right;
+  margin-top: 20rpx;
+}
+.song_info_wrap .song_name{
+  font-size: 34rpx;
+  color: #333;
+}
+.song_info{
+  font-size: 24rpx;
+  color: #888;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.song_info text{
+  vertical-align: middle;
+  margin: 0 5rpx;
+}
+.song_info text:nth-of-type(1){
+  background-color: rgb(248, 221, 172);
+  color: red;
+  font-size: 20rpx;
+  margin-right: 10rpx;
+  display: inline-block;
+  transform: scale(1, 0.7);
+}

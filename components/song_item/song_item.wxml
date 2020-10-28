@@ -1,0 +1,11 @@
+<view bindtap="newsSongClick" class="news_song_item ov">
+	<view class="song_info_wrap">
+		<view class="song_name">{{obj.name}}</view>
+		<view class="song_info">
+			<text>5D</text>
+			<text wx:for="{{obj.song.artists}}" wx:for-index="ind" wx:for-item="songItem" wx:key="ind">{{songItem.name}} - </text>
+			<text>{{obj.song.album.name}}</text>
+		</view>
+	</view>
+	<view class="play_icon iconfont icon-icon-test"></view>
+</view>

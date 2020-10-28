@@ -1,0 +1,20 @@
+<view class="comment_item">
+	<view class="comment_item_left">
+		<image src="{{theObj.user.avatarUrl}}"></image>
+	</view>
+	<view class="comment_item_right">
+		<view class="ov">
+			<view class="user_info_wrap">
+				<view class="nick_name">{{theObj.user.nickname}}</view>
+				<view class="comment_time">{{theObj.time}}</view>
+			</view>
+			<view class="zan_wrap">
+				<text>{{theObj.likedCount}}</text>
+				<text class="iconfont icon-zan"></text>
+			</view>
+		</view>
+		<view class="comment_text_wrap">
+			{{theObj.content}}
+		</view>
+	</view>
+</view>

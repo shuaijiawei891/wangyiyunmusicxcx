@@ -1,0 +1,35 @@
+<view class="container">
+	<view class="top_back_wrap" style="background-image: url({{obj.coverImgUrl}})">
+		<view class="black_mask">
+			<view class="album_name">{{obj.name}}</view>
+			<view class="update_time">{{obj.updateFrequency}}</view>
+			<view class="info info_bottom">
+				<text>{{obj.description}}...</text>
+				<text>></text>
+			</view>
+		</view>
+		<view class="song_list_title">歌曲列表</view>
+		<view class="song_list_wrap">
+			<song_item wx:for="{{songArr}}" wx:key="index" obj="{{item}}"></song_item>
+			<!-- <view bindtap="songClick" data-obj="{{item}}" class="news_song_item ov" >
+				<view class="song_info_wrap">
+					<view class="song_name">{{item.name}}</view>
+					<view class="song_info">
+						<text>5D</text>
+						<text wx:for="{{item.ar}}" wx:for-index="ind" wx:for-item="songItem" wx:key="ind">{{songItem.name}} - </text>
+						<text>{{item.al.name}}</text>
+					</view>
+				</view>
+				<view class="play_icon iconfont icon-icon-test"></view>
+			</view> -->
+		</view>
+		<view class="song_list_title">精彩评论</view>
+		<view>
+			<comment wx:for="{{hotCommentArr}}" wx:key="index" obj="{{item}}"></comment>
+		</view>
+		<view class="song_list_title">最新评论</view>
+		<view>
+			<comment wx:for="{{commentArr}}" wx:key="index" obj="{{item}}"></comment>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,79 @@
+<view class="layout">
+	<!-- 顶部导航 -->
+	<view class="nav_wrap" bindtap="navClickFn">
+		<view data-ind="0">
+			<text data-ind="0"  class="{{selectIndex == 0 ? 'active' : ''}}">推荐音乐</text>
+		</view>
+		<view data-ind="1">
+			<text data-ind="1"  class="{{selectIndex == 1 ? 'active' : ''}}">热歌榜</text>
+		</view>
+		<view data-ind="2">
+			<text data-ind="2" class="{{selectIndex == 2 ? 'active' : ''}}">搜索</text>
+		</view>
+	</view>
+  
+	<!-- 底下正文的三套页面标签(同时使用selecteIndex来控制哪个页面该出现) -->
+	<view class="content_wrap">
+		<!-- 第一页 -->
+		<view style="display: {{selectIndex == 0 ? 'block' : 'none'}}">
+      <view class="title_wrap">
+        <text>推荐歌单</text>
+      </view>
+      <view class="rec_list_wrap ov">
+        <view bindtap="recListClick" data-recid="{{item.id}}" class="rec_item" wx:for="{{recListArr}}" wx:key="index">
+          <image src="{{item.picUrl}}"></image>
+          <text>{{item.playCount}}次播放</text>
+          <view class="song_name">{{item.name}}</view>
+        </view>
+      </view>
+			<view class="title_wrap">
+        <text>最新音乐</text>
+      </view>
+			<view class="news_song_list_wrap">
+				<song_item wx:for="{{newSongArr}}" wx:key="index" obj="{{item}}"></song_item>
+			</view>
+    </view>
+
+		<!-- 第二个热歌榜页面 -->
+		<view style="display: {{selectIndex == 1 ? 'block' : 'none'}}">
+			<view class="hot_song_wrap">
+				<view class="title"></view>
+				<view class="time">更新日期: 07月23日</view>
+			</view>
+			<view>
+				<song_item wx:for="{{hotSongArr}}" wx:key="index" obj="{{item}}"></song_item>
+			</view>
+		</view>
+
+
+		<view class="three_page" style="display: {{selectIndex == 2 ? 'block' : 'none'}}">
+			<view class="search_back">
+				<view class="search_wrap">
+					<text class="iconfont icon-sousuo"></text>
+					<input bindinput="searchChange" model:value="{{nowSearchText}}" type="text" placeholder="搜索歌曲、歌手、专辑"></input>
+				</view>
+			</view>
+			<view style="display: {{textSearchArr.length > 0 || searchSongArr.length > 0 ? 'none' : 'block'}};" class="hot_search_wrap">
+				<view class="title">热门搜索</view>
+				<view class="ov">
+					<view bindtap="clickHotSearch" data-text="{{item.first}}" class="hot_search_text" wx:for="{{hotSearchArr}}" wx:key="index">{{item.first}}</view>
+				</view>
+			</view>
+
+			<view style="display: {{textSearchArr.length > 0 && searchSongArr.length === 0  ? 'block' : 'none'}};" class="text_search_wrap">
+				<view class="confirm_title_wrap">
+					<text>搜索 {{nowSearchText}}</text>
+				</view>
+				<view class="text_item" wx:for="{{textSearchArr}}" wx:key="index">
+					<text class="iconfont icon-sousuo"></text>
+					<text bindtap="clickHotSearch" data-text="{{item.keyword}}"> {{ item.keyword }}</text>
+				</view>
+			</view>	
+
+			<view style="display: {{textSearchArr.length > 0 && searchSongArr.length === 0 ? 'none' : 'block'}}">
+				<song_item wx:for="{{searchSongArr}}" wx:key="index" obj="{{item}}"></song_item>
+			</view>
+		</view>
+	</view>
+
+</view>

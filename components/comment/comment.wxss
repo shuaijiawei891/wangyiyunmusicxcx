@@ -1,0 +1,55 @@
+@import "../../fonts/font.wxss";
+/* 评论样式 */
+.ov{
+  overflow: hidden;
+}
+.comment_item{
+  overflow: hidden;
+  /* 因为行块标签之间在代码中有回车符, 把回车字体弄成0就没有了 */
+  font-size: 0;
+  padding: 20rpx 0 0 0;
+}
+.comment_item_left{
+  display: inline-block;
+  width: 60rpx;
+  padding: 0 20rpx;
+}
+.comment_item image{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+.comment_item_right{
+  /* 孩子标签必须要覆盖font-size:0, 不然子标签字体就为0不显示了 */
+  font-size: 32rpx;
+  display: inline-block;
+  width: 630rpx;
+  padding-right: 20rpx;
+  vertical-align: top;
+  padding-bottom: 10rpx;
+  border-bottom: 1px solid #eee;
+}
+.nick_name{
+  font-size: 28rpx;
+  color: #666;
+}
+.comment_time{
+  font-size: 24rpx;
+  color: #999;
+}
+.user_info_wrap{
+  width: 80%;
+  float: left;
+}
+.zan_wrap{
+  color: #999;
+  font-size: 24rpx;
+  float: right;
+  padding-top: 10rpx;
+}
+.zan_wrap text:first-of-type{
+  margin-right: 20rpx;
+}
+.commnet_text_wrap{
+  font: 28rpx/1.5 Helvetica,sans-serif,STHeiTi
+}
